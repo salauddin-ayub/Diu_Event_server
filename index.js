@@ -45,11 +45,11 @@ async function run(){
         const userCollection = database.collection('users');
 
         app.get('/appointments', async (req, res) =>{
-          const email = req.query.email;
-          console.log(req.query.date);
+        /*   const email = req.query.email;
+          console.log(req.query.date); */
           const date = new Date(req.query.date).toLocaleDateString('en-US', { timeZone: 'UTC' });
           console.log(date);
-          const query = {email: email, date: date};
+          const query = { date: date};
           console.log(query);
           const cursor = appointmentsCollection.find(query);
           const appointments = await cursor.toArray();
